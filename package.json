@@ -1,0 +1,67 @@
+{
+  "name": "@rfahmi/rfui",
+  "version": "1.0.0",
+  "description": "RFUI — a military-grade steel-blue design language for React. Provides design tokens, layout components, and utility hooks for building HUD-style interfaces.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "design-system",
+    "design-language",
+    "hud",
+    "ui-components",
+    "tokens",
+    "monochrome",
+    "military",
+    "typescript"
+  ],
+  "author": "Nur Fahmi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rfahmi/rfui"
+  },
+  "bugs": {
+    "url": "https://github.com/rfahmi/rfui/issues"
+  },
+  "homepage": "https://github.com/rfahmi/rfui",
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "react": "^18.2.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "tsup": {
+    "entry": ["src/index.ts"],
+    "format": ["cjs", "esm"],
+    "dts": true,
+    "splitting": false,
+    "sourcemap": true,
+    "clean": true,
+    "minify": true,
+    "external": ["react"]
+  }
+}
