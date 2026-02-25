@@ -16,7 +16,7 @@ monochrome interfaces in React:
 | Export type | Contents |
 |---|---|
 | **Design tokens** | Color palette, type scale, spacing scale, breakpoints |
-| **Components** | `HudPage`, `HudBackground`, `PanelCorners`, `PanelHeader` |
+| **Components** | `HudPage`, `HudBackground`, `PanelCorners`, `PanelHeader`, `HudTextField`, `SpeechBubble`, `HudToggle`, `HudTrackpad` |
 | **Hooks** | `useWindowWidth`, `useClock` |
 | **Style fragments** | `panelStyle`, `cornerStyle`, `sectionLabelStyle`, `fontStack` |
 
@@ -139,6 +139,98 @@ Uppercase label with a diamond glyph and a bottom separator line.
 ```tsx
 <PanelHeader>Control Panel</PanelHeader>
 ```
+
+#### `<HudTextField>`
+
+HUD-styled text input with optional label and submit button.
+
+```tsx
+import { HudTextField } from "@rfahmi/rfui";
+
+<HudTextField
+  label="Command"
+  placeholder="Enter command…"
+  submitLabel="SEND"
+  onSubmit={(value) => console.log(value)}
+/>
+```
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | — | Controlled input value |
+| `onChange` | `(value: string) => void` | — | Called on input change |
+| `placeholder` | `string` | — | Placeholder text |
+| `label` | `string` | — | Label displayed above the input |
+| `submitLabel` | `string` | — | Text for the submit button (renders button when set) |
+| `onSubmit` | `(value: string) => void` | — | Called when submit button is clicked or Enter is pressed |
+| `disabled` | `boolean` | `false` | Disables the input and button |
+| `style` | `CSSProperties` | — | Style overrides for the outer container |
+
+#### `<SpeechBubble>`
+
+HUD-themed speech bubble with enter/exit animations and a thick left-border accent.
+
+```tsx
+import { SpeechBubble } from "@rfahmi/rfui";
+
+<SpeechBubble visible={true}>
+  Hello, world!
+</SpeechBubble>
+```
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `children` | `ReactNode` | — | Bubble content |
+| `visible` | `boolean` | `true` | Controls enter/exit animation |
+| `style` | `CSSProperties` | — | Style overrides for the bubble |
+
+#### `<HudToggle>`
+
+Toggle switch with on/off labels.
+
+```tsx
+import { HudToggle } from "@rfahmi/rfui";
+
+<HudToggle
+  value={true}
+  onChange={(v) => setEnabled(v)}
+  label="ON"
+  offLabel="OFF"
+/>
+```
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `boolean` | — | Current toggle state |
+| `onChange` | `(value: boolean) => void` | — | Called when toggled |
+| `label` | `string` | — | Label shown when toggle is on |
+| `offLabel` | `string` | — | Label shown when toggle is off |
+| `disabled` | `boolean` | `false` | Disables the toggle |
+| `style` | `CSSProperties` | — | Style overrides for the outer container |
+
+#### `<HudTrackpad>`
+
+2D draggable trackpad for controlling an `{ x, y }` position with crosshair guides, a glowing cursor dot, axis labels, coordinate readout, and a center-reset button.
+
+```tsx
+import { HudTrackpad } from "@rfahmi/rfui";
+
+<HudTrackpad
+  value={{ x: 0, y: 0 }}
+  onChange={({ x, y }) => setPosition({ x, y })}
+  label="Gaze Direction"
+/>
+```
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `{ x: number; y: number }` | — | Current position, both axes `-1` to `1` |
+| `onChange` | `(value: { x: number; y: number }) => void` | — | Called on drag or click |
+| `label` | `string` | — | Label displayed above the pad |
+| `showAxisLabels` | `boolean` | `true` | Show U/D/L/R axis labels |
+| `showReadout` | `boolean` | `true` | Show coordinate readout below the pad |
+| `disabled` | `boolean` | `false` | Disables interaction |
+| `style` | `CSSProperties` | — | Style overrides for the outer container |
 
 ---
 
