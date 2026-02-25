@@ -7,8 +7,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [react()],
-  root: "example",
-  base: "/banaspati/",
+  root: "demo",
+  base: "/rfui/",
   resolve: {
     alias: {
       "@rfahmi/banaspati": resolve(__dirname, "src/index.ts"),
