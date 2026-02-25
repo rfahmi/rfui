@@ -38,8 +38,35 @@ export {
   SpeechBubble,
   HudToggle,
   HudTrackpad,
+  HudSelect,
+  HudCheckbox,
+  HudCheckboxGroup,
+  HudNavBar,
+  HudGrid,
+  HudGridItem,
+  HudFolder,
+  HudDocument,
 } from "./components";
-export type { PanelHeaderProps, HudPageProps, HudTextFieldProps, SpeechBubbleProps, HudToggleProps, HudTrackpadProps } from "./components";
+export type {
+  PanelHeaderProps,
+  HudPageProps,
+  HudTextFieldProps,
+  SpeechBubbleProps,
+  HudToggleProps,
+  HudTrackpadProps,
+  HudSelectProps,
+  HudSelectOption,
+  HudCheckboxProps,
+  HudCheckboxGroupProps,
+  HudCheckboxOption,
+  HudNavBarProps,
+  HudNavItem,
+  HudGridProps,
+  HudGridItemProps,
+  ResponsiveCols,
+  HudFolderProps,
+  HudDocumentProps,
+} from "./components";
 
 /* ── Hooks ─────────────────────────────────────────────── */
 export { useWindowWidth, useClock } from "./hooks";

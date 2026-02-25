@@ -17,6 +17,10 @@ export interface HudTextFieldProps {
   onSubmit?: () => void;
   /** Whether the input is disabled. */
   disabled?: boolean;
+  /** Render a textarea instead of a single-line input. */
+  multiline?: boolean;
+  /** Number of visible text rows when multiline is true. @default 4 */
+  rows?: number;
   /** Override styles on the outer wrapper. */
   style?: React.CSSProperties;
 }
@@ -75,6 +79,8 @@ export function HudTextField({
   submitLabel,
   onSubmit,
   disabled,
+  multiline = false,
+  rows = 4,
   style,
 }: HudTextFieldProps) {
   const handleSubmit = (e: React.FormEvent) => {
@@ -116,7 +122,30 @@ export function HudTextField({
     </label>
   ) : null;
 
-  const inputEl = (
+  const handleTextareaFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    e.currentTarget.style.borderColor = colors.borderHi;
+  };
+
+  const handleTextareaBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    e.currentTarget.style.borderColor = colors.border;
+  };
+
+  const inputEl = multiline ? (
+    <textarea
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      placeholder={placeholder}
+      disabled={disabled}
+      rows={rows}
+      onFocus={handleTextareaFocus}
+      onBlur={handleTextareaBlur}
+      style={{
+        ...inputStyle,
+        resize: "vertical",
+        minHeight: `${rows * 1.55 * 12 + 16}px`,
+      }}
+    />
+  ) : (
     <input
       type="text"
       value={value}
@@ -133,12 +162,23 @@ export function HudTextField({
     return (
       <div style={style}>
         {labelEl}
-        <form onSubmit={handleSubmit} style={{ display: "flex", gap: spacing.sm }}>
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            display: "flex",
+            flexDirection: multiline ? "column" : "row",
+            gap: spacing.sm,
+          }}
+        >
           {inputEl}
           <button
             type="submit"
             disabled={disabled}
-            style={buttonStyle}
+            style={
+              multiline
+                ? { ...buttonStyle, alignSelf: "flex-end" }
+                : buttonStyle
+            }
             onMouseEnter={handleBtnEnter}
             onMouseLeave={handleBtnLeave}
           >
