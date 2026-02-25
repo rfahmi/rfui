@@ -161,6 +161,24 @@ export function HudDocument({
         />
       )}
 
+      {/* ── Paper ruled lines ────────────────────────────── */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          zIndex: 0,
+          backgroundImage: `repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 15px,
+            rgba(100, 140, 180, 0.06) 15px,
+            rgba(100, 140, 180, 0.06) 16px
+          )`,
+          backgroundPosition: `0 ${foldSize + 4}px`,
+        }}
+      />
+
       {/* ── Content ──────────────────────────────────────── */}
       <div
         style={{
@@ -169,7 +187,7 @@ export function HudDocument({
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          justifyContent: "flex-end",
           padding: spacing.sm,
           paddingLeft: foldCorner === "top-left" ? foldSize + spacing.xs : spacing.sm,
           paddingRight: foldCorner === "top-right" ? foldSize + spacing.xs : spacing.sm,
@@ -189,41 +207,47 @@ export function HudDocument({
           }}
         />
 
-        {/* Top row: badge */}
-        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "flex-end" }}>
-          {badge && (
-            <span
-              style={{
-                fontSize: "0.55rem",
-                color: colors.text,
-                border: `1px solid ${colors.borderHi}`,
-                padding: `1px ${spacing.xs}px`,
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                fontFamily: fontStack,
-                marginTop: foldCorner === "top-right" ? foldSize + 2 : spacing.xs,
-                marginLeft: foldCorner === "top-left" ? foldSize + 2 : 0,
-              }}
-            >
-              {badge}
-            </span>
-          )}
-        </div>
+        {/* Badge */}
+        {badge && (
+          <span
+            style={{
+              position: "absolute",
+              top: foldSize + 4,
+              ...(foldCorner === "top-right"
+                ? { right: spacing.sm }
+                : { right: spacing.sm }),
+              fontSize: "0.55rem",
+              color: colors.text,
+              border: `1px solid ${colors.borderHi}`,
+              padding: `1px ${spacing.xs}px`,
+              textTransform: "uppercase",
+              letterSpacing: "0.1em",
+              fontFamily: fontStack,
+              zIndex: 1,
+            }}
+          >
+            {badge}
+          </span>
+        )}
 
         {/* Bottom: title + meta */}
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <span
             style={{
               color: selected ? colors.hi : colors.hi,
-              fontSize: fontSizes.xs,
+              fontSize: fontSizes.sm,
               textTransform: "uppercase",
               letterSpacing: "0.08em",
               fontWeight: 400,
               overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
+              width: "100%",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              wordBreak: "break-word",
               transition: "color 0.2s",
               opacity: selected ? 1 : 0.85,
+              lineHeight: 1.3,
             }}
           >
             {title}

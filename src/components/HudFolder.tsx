@@ -175,7 +175,8 @@ export function HudFolder({
           <span
             style={{
               color: selected ? colors.hi : colors.text,
-              fontSize: fontSizes.sm,
+              fontSize: fontSizes.xl,
+              width:"80%",
               fontFamily: fontStack,
               fontWeight: 400,
               textTransform: "uppercase",
