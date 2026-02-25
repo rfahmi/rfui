@@ -8,8 +8,6 @@ export interface HudFolderProps {
   title: string;
   /** Optional sub-label or metadata line. */
   subtitle?: string;
-  /** Glyph / character shown as the folder icon. @default "◧" */
-  icon?: string;
   /** Whether this folder is in a selected / active state. */
   selected?: boolean;
   /** Numeric count / badge shown in the bottom-right corner (e.g. number of files). */
@@ -45,7 +43,6 @@ export interface HudFolderProps {
 export function HudFolder({
   title,
   subtitle,
-  icon = "◧",
   selected = false,
   count,
   cutCorner = "top-left",
@@ -174,18 +171,7 @@ export function HudFolder({
         />
 
         {/* Header */}
-        <div style={{ display: "flex", alignItems: "flex-start", gap: spacing.sm }}>
-          <span
-            style={{
-              color: selected ? colors.mid : colors.dim,
-              fontSize: fontSizes.base,
-              lineHeight: 1,
-              flexShrink: 0,
-              transition: "color 0.2s",
-            }}
-          >
-            {icon}
-          </span>
+        <div style={{ display: "flex", alignItems: "flex-start" }}>
           <span
             style={{
               color: selected ? colors.hi : colors.text,

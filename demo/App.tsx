@@ -653,16 +653,15 @@ export default function App() {
         <PanelHeader>HudFolder</PanelHeader>
         <div style={{ display: "flex", flexWrap: "wrap", gap: spacing.xl, marginBottom: spacing.xl }}>
           {[
-            { id: "sector16", title: "SECTOR_16",  subtitle: "Special Project",    icon: "◧", count: 5 },
-            { id: "archive",  title: "ARCHIVE",    subtitle: "2025 — Sealed",       icon: "◨", count: 3 },
-            { id: "ops",      title: "OPS CENTER", subtitle: "Active Operations",   icon: "◩", count: 6 },
-            { id: "comms",    title: "COMMS",      subtitle: "Encrypted Channels",  icon: "◪", count: 2 },
-          ].map(({ id, title, subtitle, icon, count }) => (
+            { id: "sector16", title: "SECTOR_16",  subtitle: "Special Project",    count: 5 },
+            { id: "archive",  title: "ARCHIVE",    subtitle: "2025 — Sealed",       count: 3 },
+            { id: "ops",      title: "OPS CENTER", subtitle: "Active Operations",   count: 6 },
+            { id: "comms",    title: "COMMS",      subtitle: "Encrypted Channels",  count: 2 },
+          ].map(({ id, title, subtitle, count }) => (
             <HudFolder
               key={id}
               title={title}
               subtitle={subtitle}
-              icon={icon}
               count={count}
               selected={folderActive === id}
               onClick={() => setFolderActive(id)}
@@ -693,28 +692,27 @@ export default function App() {
         <PanelHeader>HudDocument</PanelHeader>
         <HudGrid cols={{ mobile: 3, tablet: 5, desktop: 8 }} gap={spacing.sm} style={{ marginBottom: spacing.xl }}>
           {[
-            { id: "brief",      title: "MISSION BRIEF",    meta: "2026-02-25 · CLASSIFIED",    badge: "PDF", icon: "◫" },
-            { id: "recon",      title: "RECON REPORT",     meta: "SECTOR_16 · Agent Kilo",      badge: "RPT", icon: "◫" },
-            { id: "manifest",   title: "SUPPLY MANIFEST",  meta: "Requisition #0047 · Pending", badge: "REQ", icon: "◧" },
-            { id: "syslog",     title: "SYSTEM LOG",       meta: "Auto-generated · 00:00 UTC",  badge: "LOG", icon: "◨" },
-            { id: "intel",      title: "INTEL SUMMARY",    meta: "Eyes Only · Level 5",         badge: "TS",  icon: "◫" },
-            { id: "sitrep",     title: "SITREP #44",       meta: "0600 UTC · Ops Command",      badge: "SIT", icon: "◫" },
-            { id: "comms",      title: "COMMS LOG",        meta: "Freq 412.8 · Encrypted",      badge: "TXT", icon: "◨" },
-            { id: "ordinance",  title: "ORD CHECKLIST",    meta: "Pre-mission · Sign off",      badge: "CHK", icon: "◧" },
-            { id: "delta",      title: "DELTA BRIEF",      meta: "Unit 7 · Strike Team",        badge: "OPS", icon: "◫" },
-            { id: "thermal",    title: "THERMAL SCAN",     meta: "Grid 44N-112E · 0430",        badge: "IMG", icon: "◫" },
-            { id: "medkit",     title: "MED INVENTORY",    meta: "Field Station 3 · Current",   badge: "MED", icon: "◧" },
-            { id: "nav",        title: "NAV WAYPOINTS",    meta: "Route Alpha · 12 pts",        badge: "NAV", icon: "◨" },
-            { id: "extraction", title: "EXTRACTION PLAN",  meta: "LZ Bravo · ETA 14:30",        badge: "PDF", icon: "◫" },
-            { id: "sigint",     title: "SIGINT REPORT",    meta: "Source 7 · Intercept",        badge: "SIG", icon: "◫" },
-            { id: "roster",     title: "UNIT ROSTER",      meta: "Alpha Company · 48 pers",     badge: "XLS", icon: "◧" },
-          ].map(({ id, title, meta, badge, icon }) => (
+            { id: "brief",      title: "MISSION BRIEF",    meta: "2026-02-25 · CLASSIFIED",    badge: "PDF" },
+            { id: "recon",      title: "RECON REPORT",     meta: "SECTOR_16 · Agent Kilo",      badge: "RPT" },
+            { id: "manifest",   title: "SUPPLY MANIFEST",  meta: "Requisition #0047 · Pending", badge: "REQ" },
+            { id: "syslog",     title: "SYSTEM LOG",       meta: "Auto-generated · 00:00 UTC",  badge: "LOG" },
+            { id: "intel",      title: "INTEL SUMMARY",    meta: "Eyes Only · Level 5",         badge: "TS"  },
+            { id: "sitrep",     title: "SITREP #44",       meta: "0600 UTC · Ops Command",      badge: "SIT" },
+            { id: "comms",      title: "COMMS LOG",        meta: "Freq 412.8 · Encrypted",      badge: "TXT" },
+            { id: "ordinance",  title: "ORD CHECKLIST",    meta: "Pre-mission · Sign off",      badge: "CHK" },
+            { id: "delta",      title: "DELTA BRIEF",      meta: "Unit 7 · Strike Team",        badge: "OPS" },
+            { id: "thermal",    title: "THERMAL SCAN",     meta: "Grid 44N-112E · 0430",        badge: "IMG" },
+            { id: "medkit",     title: "MED INVENTORY",    meta: "Field Station 3 · Current",   badge: "MED" },
+            { id: "nav",        title: "NAV WAYPOINTS",    meta: "Route Alpha · 12 pts",        badge: "NAV" },
+            { id: "extraction", title: "EXTRACTION PLAN",  meta: "LZ Bravo · ETA 14:30",        badge: "PDF" },
+            { id: "sigint",     title: "SIGINT REPORT",    meta: "Source 7 · Intercept",        badge: "SIG" },
+            { id: "roster",     title: "UNIT ROSTER",      meta: "Alpha Company · 48 pers",     badge: "XLS" },
+          ].map(({ id, title, meta, badge }) => (
             <HudGridItem key={id}>
               <HudDocument
                 title={title}
                 meta={meta}
                 badge={badge}
-                icon={icon}
                 selected={docActive === id}
                 onClick={() => setDocActive(id)}
               />

@@ -8,8 +8,6 @@ export interface HudDocumentProps {
   title: string;
   /** Short metadata line (e.g. date, type, author). */
   meta?: string;
-  /** Glyph / character used as the document type icon. @default "◫" */
-  icon?: string;
   /** Badge label shown in the top corner (e.g. "PDF", "TS"). */
   badge?: string;
   /** Whether this document is selected. */
@@ -49,7 +47,6 @@ export interface HudDocumentProps {
 export function HudDocument({
   title,
   meta,
-  icon = "◫",
   badge,
   selected = false,
   foldCorner = "top-right",
@@ -102,7 +99,7 @@ export function HudDocument({
         position: "relative",
         clipPath,
         background: panelBg,
-        aspectRatio: "2 / 3",
+        aspectRatio: "1 / 1",
         minWidth: 120,
         fontFamily: fontStack,
         cursor: disabled ? "not-allowed" : onClick ? "pointer" : "default",
@@ -192,31 +189,20 @@ export function HudDocument({
           }}
         />
 
-        {/* Top row: icon + badge */}
-        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
-          <span
-            style={{
-              color: selected ? colors.mid : colors.dim,
-              fontSize: fontSizes.lg,
-              lineHeight: 1,
-              transition: "color 0.2s",
-              marginTop: spacing.xs,
-            }}
-          >
-            {icon}
-          </span>
+        {/* Top row: badge */}
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "flex-end" }}>
           {badge && (
             <span
               style={{
-                fontSize: "0.48rem",
-                color: colors.dim,
-                border: `1px solid ${colors.border}`,
+                fontSize: "0.55rem",
+                color: colors.text,
+                border: `1px solid ${colors.borderHi}`,
                 padding: `1px ${spacing.xs}px`,
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
                 fontFamily: fontStack,
                 marginTop: foldCorner === "top-right" ? foldSize + 2 : spacing.xs,
-                marginRight: foldCorner === "top-right" ? 0 : foldSize + 2,
+                marginLeft: foldCorner === "top-left" ? foldSize + 2 : 0,
               }}
             >
               {badge}
@@ -228,7 +214,7 @@ export function HudDocument({
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <span
             style={{
-              color: selected ? colors.hi : colors.text,
+              color: selected ? colors.hi : colors.hi,
               fontSize: fontSizes.xs,
               textTransform: "uppercase",
               letterSpacing: "0.08em",
@@ -237,6 +223,7 @@ export function HudDocument({
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
               transition: "color 0.2s",
+              opacity: selected ? 1 : 0.85,
             }}
           >
             {title}
@@ -244,12 +231,13 @@ export function HudDocument({
           {meta && (
             <span
               style={{
-                color: colors.dim,
-                fontSize: "0.55rem",
+                color: colors.mid,
+                fontSize: fontSizes.xs,
                 letterSpacing: "0.05em",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
+                opacity: 0.75,
               }}
             >
               {meta}
