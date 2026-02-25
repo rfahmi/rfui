@@ -9,11 +9,6 @@ export default defineConfig({
   plugins: [react()],
   root: "demo",
   base: "/rfui/",
-  resolve: {
-    alias: {
-      "@rfahmi/banaspati": resolve(__dirname, "src/index.ts"),
-    },
-  },
   build: {
     outDir: "../dist-demo",
     emptyOutDir: true,
