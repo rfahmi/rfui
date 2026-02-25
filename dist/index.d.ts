@@ -192,6 +192,66 @@ interface HudPageProps {
  */
 declare function HudPage({ children, maxWidth, style }: HudPageProps): react_jsx_runtime.JSX.Element;
 
+interface HudTextFieldProps {
+    /** Current value of the input. */
+    value: string;
+    /** Called when the input value changes. */
+    onChange: (value: string) => void;
+    /** Placeholder text shown when empty. */
+    placeholder?: string;
+    /** Optional label displayed above the input. */
+    label?: string;
+    /** Text for the submit button. Renders a form with button when provided. */
+    submitLabel?: string;
+    /** Called when the form is submitted (Enter key or button click). */
+    onSubmit?: () => void;
+    /** Whether the input is disabled. */
+    disabled?: boolean;
+    /** Override styles on the outer wrapper. */
+    style?: React.CSSProperties;
+}
+/**
+ * A HUD-styled text input with optional label and submit button.
+ * Follows the RFUI steel-blue monochrome design language.
+ *
+ * @example
+ * ```tsx
+ * <HudTextField
+ *   label="Message"
+ *   value={text}
+ *   onChange={setText}
+ *   submitLabel="SEND"
+ *   onSubmit={handleSend}
+ *   placeholder="Type something…"
+ * />
+ * ```
+ */
+declare function HudTextField({ value, onChange, placeholder, label, submitLabel, onSubmit, disabled, style, }: HudTextFieldProps): react_jsx_runtime.JSX.Element;
+
+interface SpeechBubbleProps {
+    /** The text to display inside the bubble. */
+    children: React.ReactNode;
+    /** Whether the bubble is currently visible (controls enter/exit animation). */
+    visible: boolean;
+    /** Override styles on the outer wrapper. */
+    style?: React.CSSProperties;
+}
+/**
+ * A HUD-themed speech bubble with enter/exit animations.
+ * Designed to pair with the Banaspati avatar but works anywhere.
+ *
+ * Uses the RFUI steel-blue design language: monochrome panel background,
+ * monospace font, subtle border accents, and a downward-pointing tail.
+ *
+ * @example
+ * ```tsx
+ * <SpeechBubble visible={showBubble}>
+ *   Hello from the HUD!
+ * </SpeechBubble>
+ * ```
+ */
+declare function SpeechBubble({ children, visible, style }: SpeechBubbleProps): react_jsx_runtime.JSX.Element;
+
 /**
  * Tracks `window.innerWidth` and re-renders on resize.
  * Returns `{ windowWidth, isMobile, isTablet, isDesktop }`.
@@ -223,4 +283,4 @@ declare function useWindowWidth(): {
  */
 declare function useClock(locale?: string, options?: Intl.DateTimeFormatOptions): string;
 
-export { type Breakpoints, type Colors, type FontSizes, HudBackground, HudPage, type HudPageProps, PanelCorners, PanelHeader, type PanelHeaderProps, type Spacing, ambientGradient, breakpoints, colors, cornerStyle, tokens as default, dotGridBackground, fontSizes, fontStack, panelStyle, sectionLabelStyle, spacing, tokens, useClock, useWindowWidth, vignetteBackground };
+export { type Breakpoints, type Colors, type FontSizes, HudBackground, HudPage, type HudPageProps, HudTextField, type HudTextFieldProps, PanelCorners, PanelHeader, type PanelHeaderProps, type Spacing, SpeechBubble, type SpeechBubbleProps, ambientGradient, breakpoints, colors, cornerStyle, tokens as default, dotGridBackground, fontSizes, fontStack, panelStyle, sectionLabelStyle, spacing, tokens, useClock, useWindowWidth, vignetteBackground };

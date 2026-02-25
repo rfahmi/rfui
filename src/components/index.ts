@@ -4,3 +4,7 @@ export type { PanelHeaderProps } from "./PanelHeader";
 export { HudBackground } from "./HudBackground";
 export { HudPage } from "./HudPage";
 export type { HudPageProps } from "./HudPage";
+export { HudTextField } from "./HudTextField";
+export type { HudTextFieldProps } from "./HudTextField";
+export { SpeechBubble } from "./SpeechBubble";
+export type { SpeechBubbleProps } from "./SpeechBubble";

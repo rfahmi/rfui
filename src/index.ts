@@ -34,8 +34,10 @@ export {
   PanelHeader,
   HudBackground,
   HudPage,
+  HudTextField,
+  SpeechBubble,
 } from "./components";
-export type { PanelHeaderProps, HudPageProps } from "./components";
+export type { PanelHeaderProps, HudPageProps, HudTextFieldProps, SpeechBubbleProps } from "./components";
 
 /* ── Hooks ─────────────────────────────────────────────── */
 export { useWindowWidth, useClock } from "./hooks";
