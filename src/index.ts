@@ -36,8 +36,10 @@ export {
   HudPage,
   HudTextField,
   SpeechBubble,
+  HudToggle,
+  HudTrackpad,
 } from "./components";
-export type { PanelHeaderProps, HudPageProps, HudTextFieldProps, SpeechBubbleProps } from "./components";
+export type { PanelHeaderProps, HudPageProps, HudTextFieldProps, SpeechBubbleProps, HudToggleProps, HudTrackpadProps } from "./components";
 
 /* ── Hooks ─────────────────────────────────────────────── */
 export { useWindowWidth, useClock } from "./hooks";

@@ -252,6 +252,67 @@ interface SpeechBubbleProps {
  */
 declare function SpeechBubble({ children, visible, style }: SpeechBubbleProps): react_jsx_runtime.JSX.Element;
 
+interface HudToggleProps {
+    /** Whether the toggle is on. */
+    value: boolean;
+    /** Called when toggled. */
+    onChange: (value: boolean) => void;
+    /** Label shown to the right of the toggle. */
+    label?: string;
+    /** Alternative label shown when toggle is off. If omitted, `label` is used for both states. */
+    offLabel?: string;
+    /** Whether the toggle is disabled. */
+    disabled?: boolean;
+    /** Override styles on the outer wrapper. */
+    style?: React.CSSProperties;
+}
+/**
+ * A HUD-styled toggle switch with an optional label.
+ * Follows the RFUI steel-blue monochrome design language.
+ *
+ * @example
+ * ```tsx
+ * <HudToggle value={enabled} onChange={setEnabled} label="ACTIVE" offLabel="DISABLED" />
+ * ```
+ */
+declare function HudToggle({ value, onChange, label, offLabel, disabled, style, }: HudToggleProps): react_jsx_runtime.JSX.Element;
+
+interface HudTrackpadProps {
+    /** Current position. Both axes normalised from -1 to 1. */
+    value: {
+        x: number;
+        y: number;
+    };
+    /** Called with the new position when the user drags or clicks the pad. */
+    onChange: (value: {
+        x: number;
+        y: number;
+    }) => void;
+    /** Optional label displayed above the trackpad. */
+    label?: string;
+    /** Show axis labels (U/D/L/R) on the pad edges. @default true */
+    showAxisLabels?: boolean;
+    /** Show coordinate readout and centre button below the pad. @default true */
+    showReadout?: boolean;
+    /** Whether the trackpad is disabled. */
+    disabled?: boolean;
+    /** Override styles on the outer wrapper. */
+    style?: React.CSSProperties;
+}
+/**
+ * A HUD-styled 2D trackpad for controlling an (x, y) position.
+ * Drag or click anywhere on the pad to set the value.
+ *
+ * Follows the RFUI steel-blue monochrome design language with crosshair
+ * guides, a glowing cursor dot, and an optional coordinate readout.
+ *
+ * @example
+ * ```tsx
+ * <HudTrackpad value={pos} onChange={setPos} label="Gaze" />
+ * ```
+ */
+declare function HudTrackpad({ value, onChange, label, showAxisLabels, showReadout, disabled, style, }: HudTrackpadProps): react_jsx_runtime.JSX.Element;
+
 /**
  * Tracks `window.innerWidth` and re-renders on resize.
  * Returns `{ windowWidth, isMobile, isTablet, isDesktop }`.
@@ -283,4 +344,4 @@ declare function useWindowWidth(): {
  */
 declare function useClock(locale?: string, options?: Intl.DateTimeFormatOptions): string;
 
-export { type Breakpoints, type Colors, type FontSizes, HudBackground, HudPage, type HudPageProps, HudTextField, type HudTextFieldProps, PanelCorners, PanelHeader, type PanelHeaderProps, type Spacing, SpeechBubble, type SpeechBubbleProps, ambientGradient, breakpoints, colors, cornerStyle, tokens as default, dotGridBackground, fontSizes, fontStack, panelStyle, sectionLabelStyle, spacing, tokens, useClock, useWindowWidth, vignetteBackground };
+export { type Breakpoints, type Colors, type FontSizes, HudBackground, HudPage, type HudPageProps, HudTextField, type HudTextFieldProps, HudToggle, type HudToggleProps, HudTrackpad, type HudTrackpadProps, PanelCorners, PanelHeader, type PanelHeaderProps, type Spacing, SpeechBubble, type SpeechBubbleProps, ambientGradient, breakpoints, colors, cornerStyle, tokens as default, dotGridBackground, fontSizes, fontStack, panelStyle, sectionLabelStyle, spacing, tokens, useClock, useWindowWidth, vignetteBackground };

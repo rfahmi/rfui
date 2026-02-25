@@ -8,3 +8,7 @@ export { HudTextField } from "./HudTextField";
 export type { HudTextFieldProps } from "./HudTextField";
 export { SpeechBubble } from "./SpeechBubble";
 export type { SpeechBubbleProps } from "./SpeechBubble";
+export { HudToggle } from "./HudToggle";
+export type { HudToggleProps } from "./HudToggle";
+export { HudTrackpad } from "./HudTrackpad";
+export type { HudTrackpadProps } from "./HudTrackpad";
