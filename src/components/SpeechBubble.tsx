@@ -58,7 +58,7 @@ export function SpeechBubble({ children, visible, style }: SpeechBubbleProps) {
             borderTop: `1px solid ${colors.borderHi}`,
             borderRight: `1px solid ${colors.borderHi}`,
             borderBottom: `1px solid ${colors.borderHi}`,
-            borderLeft: `3px solid ${colors.hi}`,
+            borderLeft: `3px solid ${colors.borderHi}`,
             color: colors.hi,
             fontFamily: fontStack,
             fontSize: fontSizes.sm,
