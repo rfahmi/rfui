@@ -8,21 +8,21 @@
 /* ── Color palette ─────────────────────────────────────── */
 export const colors = {
   /** Page / canvas background */
-  bg:       "#0a0f1e",
+  bg:       "#080d1a",
   /** Panel fill (semi-transparent) */
-  panel:    "rgba(12, 22, 42, 0.75)",
+  panel:    "rgba(10, 20, 44, 0.80)",
   /** High-emphasis text / labels */
-  hi:       "#c8d8ec",
+  hi:       "#b8daff",
   /** Mid-emphasis text / secondary */
-  mid:      "#7a90a8",
+  mid:      "#6a9ec8",
   /** Low-emphasis / muted / decorative */
-  dim:      "#3e5068",
+  dim:      "#3d5a7a",
   /** Default body text */
-  text:     "#9aacbf",
+  text:     "#8abcd8",
   /** Subtle border */
-  border:   "rgba(120, 160, 200, 0.2)",
+  border:   "rgba(100, 168, 224, 0.28)",
   /** Highlighted / hovered border */
-  borderHi: "rgba(160, 190, 220, 0.35)",
+  borderHi: "rgba(120, 190, 255, 0.50)",
 } as const;
 
 export type Colors = typeof colors;
