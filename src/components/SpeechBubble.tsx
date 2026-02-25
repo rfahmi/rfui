@@ -55,7 +55,10 @@ export function SpeechBubble({ children, visible, style }: SpeechBubbleProps) {
           style={{
             position: "relative",
             background: colors.panel,
-            border: `1px solid ${colors.borderHi}`,
+            borderTop: `1px solid ${colors.borderHi}`,
+            borderRight: `1px solid ${colors.borderHi}`,
+            borderBottom: `1px solid ${colors.borderHi}`,
+            borderLeft: `3px solid ${colors.hi}`,
             color: colors.hi,
             fontFamily: fontStack,
             fontSize: fontSizes.sm,
@@ -70,55 +73,6 @@ export function SpeechBubble({ children, visible, style }: SpeechBubbleProps) {
             whiteSpace: "pre-wrap",
           }}
         >
-          {/* Top-left corner accent */}
-          <div
-            style={{
-              position: "absolute",
-              top: 3,
-              left: 3,
-              width: 8,
-              height: 8,
-              borderTop: `1px solid ${colors.borderHi}`,
-              borderLeft: `1px solid ${colors.borderHi}`,
-            }}
-          />
-          {/* Top-right corner accent */}
-          <div
-            style={{
-              position: "absolute",
-              top: 3,
-              right: 3,
-              width: 8,
-              height: 8,
-              borderTop: `1px solid ${colors.borderHi}`,
-              borderRight: `1px solid ${colors.borderHi}`,
-            }}
-          />
-          {/* Bottom-left corner accent */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: 3,
-              left: 3,
-              width: 8,
-              height: 8,
-              borderBottom: `1px solid ${colors.borderHi}`,
-              borderLeft: `1px solid ${colors.borderHi}`,
-            }}
-          />
-          {/* Bottom-right corner accent */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: 3,
-              right: 3,
-              width: 8,
-              height: 8,
-              borderBottom: `1px solid ${colors.borderHi}`,
-              borderRight: `1px solid ${colors.borderHi}`,
-            }}
-          />
-
           {children}
         </div>
 
